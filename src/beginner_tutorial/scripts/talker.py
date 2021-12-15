@@ -4,13 +4,13 @@ import rospy
 from std_msgs.msg import String
 
 def PublishMethod():
-	pub = rospy.Publisher('talker',String,queue_size=10) #defining the publisher by topic message type
-	rospy.init_node('publish_node',anonymous = True) #defining the ros node -publisher node
-	rate = rospy.Rate(10) #10hz #frequency at witch the publishing
+	pub = rospy.Publisher('talker',String,queue_size=10) #définition du noeud publisher pour le topic et définition du type de message
+	rospy.init_node('publish_node',anonymous = True) #initialisation du noeud publisher
+	rate = rospy.Rate(10) #10hz #frequence de publication
 	while not rospy.is_shutdown():
 		publishingString = "THis is being published" #variable
-		rospy.loginfo("DAta is being sent") #to print on the terminal
-		pub.publish(publishingString) #publishin
+		rospy.loginfo("DAta is being sent") #affichage sur le terminal
+		pub.publish(publishingString) #publication sur le topic
 if __name__=='__main__':
 	try:
 		PublishMethod()
